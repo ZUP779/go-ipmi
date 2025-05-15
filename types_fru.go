@@ -48,6 +48,7 @@ const (
 
 const (
 	FRUFormatVersion     uint8 = 0x01
+	FRUFormatVersion2    uint8 = 0x10
 	FRUAreaFieldsEndMark uint8 = 0xc1
 	FRUCommonHeaderSize  uint8 = 8
 )

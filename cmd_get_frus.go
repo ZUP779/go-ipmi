@@ -76,7 +76,7 @@ func (c *Client) GetFRU(ctx context.Context, deviceID uint8, deviceName string) 
 	if err := fruHeader.Unpack(readFRURes.Data); err != nil {
 		return nil, fmt.Errorf("unpack fru data failed, err: %w", err)
 	}
-	if fruHeader.FormatVersion != FRUFormatVersion {
+	if fruHeader.FormatVersion != FRUFormatVersion && fruHeader.FormatVersion != FRUFormatVersion2 {
 		return nil, fmt.Errorf("unknown FRU header version %#02x", fruHeader.FormatVersion)
 	}
 	c.Debug("FRU Common Header", fruHeader)
